@@ -37,6 +37,7 @@
     "discord-rpc": "4.0.1",
     "secure-random-string": "^1.1.4"
   },
+  "icon": "./assets/icon.png",
   "contributes": {
     "configuration": {
       "title": "Penguin Discord RPC (Private Socket)",
