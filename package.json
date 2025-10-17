@@ -1,0 +1,94 @@
+{
+  "name": "vscode-discord-rpc-extension",
+  "displayName": "Penguin Discord RPC (Private Socket)",
+  "description": "Secure Discord RPC",
+  "publisher": "BoringPenguin",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "repository": {
+    "url": "https://github.com/Boring-Dude/PenguinRPC"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "build": "tsc -p ./",
+    "watch:transpiler": "tsc -w"
+  },
+  "dependencies": {
+    "discord-rpc": "4.0.1",
+    "secure-random-string": "^1.1.4"
+  },
+  "contributes": {
+    "configuration": {
+      "title": "Penguin Discord RPC (Private Socket)",
+      "properties": {
+        "discordRpc.socketPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional socket path (leave empty to use OS default under extension storage)."
+        },
+        "discordRpc.allowedOrigins": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Optional list of allowed local origins for incoming socket connections (for token-less use)."
+        },
+        "discordRpc.showLineAndErrors": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show sanitized line and error count in presence."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "discordRpcExtension.start",
+        "title": "Start Penguin Discord RPC"
+      },
+      {
+        "command": "discordRpcExtension.stop",
+        "title": "Stop Penguin Discord RPC"
+      },
+      {
+        "command": "penguing-discord-rpc.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/discord-rpc": "^4.0.9",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.8.1",
+    "@types/vscode": "^1.105.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.1",
+    "@typescript-eslint/parser": "^8.46.1",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.25.11",
+    "eslint": "^9.37.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3"
+  },
+  "license": "UNLICENSED"
+}
