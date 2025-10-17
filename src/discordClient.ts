@@ -3,6 +3,12 @@ import { getIconPath } from './icon-loader';
 import path from 'path';
 
 export class DiscordClient {
+  static connect(): any {
+    throw new Error("Method not implemented.");
+  }
+  static setLanguagePresence(languageId: string, arg1: number | undefined, arg2: number) {
+    throw new Error("Method not implemented.");
+  }
   private client: RPC.Client | null = null;
   private clientId: string;
 

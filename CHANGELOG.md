@@ -13,7 +13,7 @@ A brief changelog of what's **Added**, _Improved_, **_Fixed_**, and ~~Removed~~.
 #### What Will Be Added
 
 - **Idle Timer**
-  Auto-switch to “Idle” icon after X minutes of inactivity. Configurable via `discordRpc.idleTimeout`.
+  Auto-switch to “Idle” icon after X minutes of inactivity. Configurable via `Discord®Rpc.idleTimeout`.
 
 - **Workspace / Project Name**
   Optional line: _Editing Rust – project: my-app_ (folder name hashed for privacy).
@@ -28,7 +28,7 @@ A brief changelog of what's **Added**, _Improved_, **_Fixed_**, and ~~Removed~~.
   While running: “Running tests…” + percent. On finish: ✅ / ❌ with pass/fail count.
 
 - **Customisable Icons**
-  Drop PNGs into `.vscode/discord-icons/` and map in `settings.json`.
+  Drop PNGs into `.vscode/Discord®-icons/` and map in `settings.json`.
 
 - **Multi-workspace Support**
   One presence per VS Code window.
@@ -46,7 +46,7 @@ A brief changelog of what's **Added**, _Improved_, **_Fixed_**, and ~~Removed~~.
   Append _Artist – Song_ via last.fm or `osascript`.
 
 - **Remote Dev Friendly**
-  Run socket on WSL/SSH/Codespaces and tunnel to local Discord.
+  Run socket on WSL/SSH/Codespaces and tunnel to local Discord®.
 
 - **Light / Dark Icon Variants**
   Match VS Code theme with `large_image_key` + `small_image_key`.
@@ -69,15 +69,15 @@ A brief changelog of what's **Added**, _Improved_, **_Fixed_**, and ~~Removed~~.
 #### Added
 
 - Initial release.
-- Language-aware Discord Rich Presence (100+ mapped icons).
+- Language-aware Discord® Rich Presence (100+ mapped icons).
 - Privacy-first: only language, line & error count transmitted.
 - Local UNIX-socket / named-pipe server with HMAC-SHA-256 auth.
-- Configurable Discord App ID & visibility options.
-- Commands: `Start`, `Stop` Discord RPC.
+- Configurable Discord® App ID & visibility options.
+- Commands: `Start`, `Stop` Discord® RPC.
 - Status-bar indicator for socket state.
 - Debounced updates (300 ms) to avoid rate limits.
 - Auto-cleanup of stale sockets.
-- Bundled icons ready for Discord upload.
+- Bundled icons ready for Discord® upload.
 
 #### Security
 

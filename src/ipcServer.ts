@@ -21,7 +21,7 @@ export class IpcServer {
   ) {
     this.token = token;
     this.onMessage = onMessage;
-    this.socketPath = path.join(socketDir, `vscode-discord-rpc.sock`);
+    this.socketPath = path.join(socketDir, `vscode-Discord®-rpc.sock`);
   }
 
   getSocketPath(): string {

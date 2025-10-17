@@ -1,12 +1,12 @@
 import * as assert from "assert";
 import * as vscode from "vscode";
 
-suite("Discord RPC Extension", () => {
+suite("Discord® RPC Extension", () => {
   test("should be present", () => {
-    assert.ok(vscode.extensions.getExtension("BoringPenguin.discord-rpc"));
+    assert.ok(vscode.extensions.getExtension("BoringPenguin.Discord®-rpc"));
   });
   test("should activate", async () => {
-    const ext = vscode.extensions.getExtension("BoringPenguin.discord-rpc")!;
+    const ext = vscode.extensions.getExtension("BoringPenguin.Discord®-rpc")!;
     await ext.activate();
     assert.ok(ext.isActive);
   });

@@ -25,11 +25,11 @@ const sendEditorSnapshot = debounce(_sendEditorSnapshot, 300);
 export async function activate(
   context: vscode.ExtensionContext
 ): Promise<void> {
-  const cfg = vscode.workspace.getConfiguration("discordRpc");
+  const cfg = vscode.workspace.getConfiguration("Discord®Rpc");
 
   const token =
-    context.globalState.get<string>("discordRpc.token") ?? generateToken();
-  await context.globalState.update("discordRpc.token", token);
+    context.globalState.get<string>("Discord®Rpc.token") ?? generateToken();
+  await context.globalState.update("Discord®Rpc.token", token);
 
   const socketDir = path.join(context.globalStorageUri.fsPath, "socket");
   ipcServer = new IpcServer(socketDir, token, (msg) =>
@@ -39,7 +39,7 @@ export async function activate(
   const clientId = cfg.get<string>("clientId") || "1428089034458009770";
   discordClient = new DiscordClient(clientId);
 
-  await Promise.allSettled([ipcServer.start(), discordClient.connect()]);
+  await Promise.allSettled([ipcServer.start(), DiscordClient.connect()]);
 
   statusBarItem = vscode.window.createStatusBarItem(
     vscode.StatusBarAlignment.Left,
@@ -47,14 +47,14 @@ export async function activate(
   );
   context.subscriptions.push(
     statusBarItem,
-    vscode.commands.registerCommand("discordRpcExtension.start", async () => {
+    vscode.commands.registerCommand("Discord®RpcExtension.start", async () => {
       await Promise.allSettled([ipcServer?.start(), discordClient?.connect()]);
-      vscode.window.showInformationMessage("Discord RPC started");
+      vscode.window.showInformationMessage("Discord® RPC started");
       updateStatusBar();
     }),
-    vscode.commands.registerCommand("discordRpcExtension.stop", async () => {
+    vscode.commands.registerCommand("Discord®RpcExtension.stop", async () => {
       await Promise.allSettled([ipcServer?.stop(), discordClient?.dispose()]);
-      vscode.window.showInformationMessage("Discord RPC stopped");
+      vscode.window.showInformationMessage("Discord® RPC stopped");
       updateStatusBar();
     }),
     vscode.window.onDidChangeActiveTextEditor(() => sendEditorSnapshot()),
@@ -132,7 +132,7 @@ async function handleIncoming(
 }
 
 async function _sendEditorSnapshot(): Promise<void> {
-  if (!discordClient) {
+  if (!DiscordClient) {
     return;
   }
 
@@ -141,9 +141,9 @@ async function _sendEditorSnapshot(): Promise<void> {
   const line = editor ? editor.selection.active.line + 1 : undefined;
   const errors = editor ? countErrors(editor.document.uri) : 0;
 
-  const cfg = vscode.workspace.getConfiguration("discordRpc");
+  const cfg = vscode.workspace.getConfiguration("Discord®Rpc");
   const show = cfg.get<boolean>("showLineAndErrors", true);
-  await discordClient.setLanguagePresence(
+  await DiscordClient.setLanguagePresence(
     languageId,
     show ? line : undefined,
     show ? errors : 0
@@ -164,7 +164,7 @@ function updateStatusBar(): void {
     return;
   }
   try {
-    statusBarItem.text = "Discord RPC: active";
+    statusBarItem.text = "Discord® RPC: active";
     statusBarItem.tooltip =
       "Local socket for trusted apps. Token stored in extension secret state.";
     statusBarItem.show();
