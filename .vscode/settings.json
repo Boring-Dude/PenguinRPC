@@ -10,5 +10,5 @@
   },
   // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
   "typescript.tsc.autoDetect": "off",
-  "Discord®Rpc.clientId": "1428089034458009770"
+  "discordRpc.clientId": "1428089034458009770"
 }
